@@ -1,13 +1,19 @@
-package vn.edu.iuh.fit.entities;
+package vn.edu.iuh.fit.backEnd.entities;
 
 import jakarta.persistence.*;
-import vn.edu.iuh.fit.enums.SkillType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import vn.edu.iuh.fit.backEnd.enums.SkillType;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "skill")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Skill implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +33,5 @@ public class Skill implements Serializable {
     @OneToMany(mappedBy = "skill")
     private List<JobSkill> jobSkills;
 
-    public Skill() {
-    }
+
 }

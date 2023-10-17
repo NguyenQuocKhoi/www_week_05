@@ -1,11 +1,17 @@
-package vn.edu.iuh.fit.entities;
+package vn.edu.iuh.fit.backEnd.entities;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "job")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Job implements Serializable {
 
     @Id
@@ -23,6 +29,5 @@ public class Job implements Serializable {
     @JoinColumn(name = "com_id")
     private Company company;
 
-    public Job() {
-    }
+
 }

@@ -1,15 +1,27 @@
-package vn.edu.iuh.fit.entities;
+package vn.edu.iuh.fit.backEnd.entities;
 
 import jakarta.persistence.*;
 
 
-
+//import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "candidate")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
 public class Candidate implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +30,7 @@ public class Candidate implements Serializable {
 
 
     @Column(name = "dob", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 
     @Column(name = "phone", nullable = false, columnDefinition = "varchar(15)")
@@ -39,6 +52,24 @@ public class Candidate implements Serializable {
 
     @OneToMany(mappedBy = "candidate")
     private List<Experience> experiences;
-    public Candidate() {
+
+    @Override
+    public String toString() {
+        return "Candidate{" +
+            "id=" + id +
+            ", dob=" + dob +
+            ", phone='" + phone + '\'' +
+            ", email='" + email + '\'' +
+            ", fullName='" + fullName + '\'' +
+            ", address=" + address +
+            '}';
+    }
+
+    public Candidate(String fullName, LocalDate dob, Address address, String phone, String email) {
+        this.fullName = fullName;
+        this.dob = dob;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
     }
 }

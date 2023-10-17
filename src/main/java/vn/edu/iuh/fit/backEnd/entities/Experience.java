@@ -1,12 +1,18 @@
-package vn.edu.iuh.fit.entities;
+package vn.edu.iuh.fit.backEnd.entities;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "experience")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Experience implements Serializable {
 
     @Id
@@ -33,6 +39,4 @@ public class Experience implements Serializable {
     @JoinColumn(name = "can_id")
     private Candidate candidate;
 
-    public Experience() {
-    }
 }

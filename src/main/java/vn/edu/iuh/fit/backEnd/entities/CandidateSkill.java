@@ -1,13 +1,21 @@
-package vn.edu.iuh.fit.entities;
+package vn.edu.iuh.fit.backEnd.entities;
 
 import jakarta.persistence.*;
-import vn.edu.iuh.fit.enums.SkillLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import vn.edu.iuh.fit.backEnd.enums.SkillLevel;
 
 import java.io.Serializable;
 import java.util.Objects;
+import vn.edu.iuh.fit.backEnd.ids.CandidateSkillID;
 
 @Entity
 @Table(name = "candidate_skill")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@IdClass(CandidateSkillID.class)
 public class CandidateSkill implements Serializable {
 
     @Id
@@ -27,18 +35,4 @@ public class CandidateSkill implements Serializable {
     @Column(name = "more_infos", nullable = false, columnDefinition = "varchar(1000)")
     private String moreInfos;
 
-    public CandidateSkill() {
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CandidateSkill that)) return false;
-        return Objects.equals(candidate, that.candidate) && Objects.equals(skill, that.skill) && skillLevel == that.skillLevel && Objects.equals(moreInfos, that.moreInfos);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(candidate, skill, skillLevel, moreInfos);
-    }
 }

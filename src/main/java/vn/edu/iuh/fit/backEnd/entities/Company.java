@@ -1,12 +1,18 @@
-package vn.edu.iuh.fit.entities;
+package vn.edu.iuh.fit.backEnd.entities;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "company")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Company implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +43,4 @@ public class Company implements Serializable {
     private List<Job> jobs;
 
 
-    public Company() {
-    }
 }

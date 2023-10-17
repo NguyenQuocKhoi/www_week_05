@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.enums;
+package vn.edu.iuh.fit.backEnd.enums;
 
 public enum SkillLevel {
     MASTER(1),
