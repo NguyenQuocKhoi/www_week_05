@@ -34,9 +34,9 @@ public class CandidateServices {
             list = candidates.subList(startItem, toIndex);
         }
 
-        Page<Candidate> candidatePage
-                = new PageImpl<>(list, PageRequest.of(currentPage, pageSize), candidates.size());
+        Page<Candidate> candidatePage = new PageImpl<>(list, PageRequest.of(currentPage, pageSize), candidates.size());
 
         return candidatePage;
     }
+
 }
