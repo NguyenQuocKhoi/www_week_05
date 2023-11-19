@@ -40,7 +40,7 @@
         <td th:text="${candidate.phone}"></td>
         <td th:text="${candidate.email}"></td>
         <td><a th:href="@{show-edit-form/{id}(id=${candidate.id})}">Edit</a></td>
-        <td><a th:href="@{/delete/{id}(id=${candidate.id})}">Delete</a></td>
+        <td><a th:href="@{candidates/delete/{id}(id=${candidate.id})}">Delete</a></td>
     </tr>
     </tbody>
 </table>
@@ -50,6 +50,6 @@
        th:class="${pageNumber==candidatePage.number + 1} ? active"></a>
 </div>
 <br/>
-<div class="inline"><a href="/show-add-form">Add a new Candidate</a></div>
+<div class="inline"><a href="/candidates/show-add-form">Add a new Candidate</a></div>
 </body>
 </html>

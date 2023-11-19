@@ -15,51 +15,33 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Address implements Serializable {
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "add_id")
     private long id;
-
     @Column(name = "number", length = 20)
     private String number;
-
-    @Column(name = "country", nullable = false)
-    private CountryCode country = CountryCode.VN;
-
-    @Column(name = "zipcode", nullable = false, columnDefinition = "varchar(7)")
-    private String zipCode;
-
-    @Column(name = "city", nullable = false, columnDefinition = "varchar(50)")
-    private String city;
-
-    @Column(name = "street", nullable = false, columnDefinition = "varchar(150)")
+    @Column(name = "Street", length = 150)
     private String street;
-
-    @OneToOne(mappedBy = "address")
-    private Candidate candidate;
-
-    @OneToOne(mappedBy = "address")
-    private Company company;
-
-
-    @Override
-    public String toString() {
-        return "Address{" +
-            "number='" + number + '\'' +
-            ", country=" + country.getName() +
-            ", zipCode='" + zipCode + '\'' +
-            ", city='" + city + '\'' +
-            ", street='" + street + '\'' +
-            '}';
-    }
+    @Column(name = "city", length = 50)
+    private String city;
+    @Column(name = "zipcode", length = 7)
+    private String zipcode;
+    @Column(name = "country", length = 30)
+    private CountryCode country = CountryCode.VN;
 
 
     public Address(String number, String street, String city, String zipcode, CountryCode country) {
         this.number = number;
         this.street = street;
         this.city = city;
-        this.zipCode = zipcode;
+        this.zipcode = zipcode;
         this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return number + ", " + street + ", " + city + ", " + zipcode + ", " + country.getName();
     }
 }

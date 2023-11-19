@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
+
 public class CandidateController {
     @Autowired
     private CandidateRepository candidateRepository;
@@ -59,7 +60,7 @@ public class CandidateController {
         return "candidates/list";
     }
 
-    @GetMapping("/show-add-form")
+    @GetMapping("/candidates/show-add-form")
     public ModelAndView add(Model model) {
         ModelAndView modelAndView = new ModelAndView();
         Candidate candidate = new Candidate();
@@ -70,11 +71,12 @@ public class CandidateController {
         modelAndView.setViewName("candidates/add");
         return modelAndView;
     }
+
     @PostMapping("/candidates/add")
     public String addCandidate(
-            @ModelAttribute("candidate") Candidate candidate,
-            @ModelAttribute("address") Address address,
-                               BindingResult result, Model model) {
+        @ModelAttribute("candidate") Candidate candidate,
+        @ModelAttribute("address") Address address,
+        BindingResult result, Model model) {
         addressRepository.save(address);
         candidate.setAddress(address);
         candidateRepository.save(candidate);
@@ -100,8 +102,14 @@ public class CandidateController {
             @ModelAttribute("address") Address address,
             BindingResult result, Model model) {
         addressRepository.save(address);
-//        candidate.setAddress(address);
+        candidate.setAddress(address);
         candidateRepository.save(candidate);
+        return "redirect:/candidates";
+    }
+    @GetMapping("/candidates/delete/{id}")
+    public String deleteCandidate(@PathVariable("id") long id) {
+        Candidate candidate = candidateRepository.findById(id).orElse(new Candidate());
+        candidateRepository.delete(candidate);
         return "redirect:/candidates";
     }
 }
