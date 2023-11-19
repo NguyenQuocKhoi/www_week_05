@@ -9,11 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import vn.edu.iuh.fit.backEnd.entities.Address;
 import vn.edu.iuh.fit.backEnd.entities.Candidate;
+import vn.edu.iuh.fit.backEnd.entities.Company;
 import vn.edu.iuh.fit.backEnd.repositories.AddressRepository;
 import vn.edu.iuh.fit.backEnd.repositories.CandidateRepository;
 
 import java.time.LocalDate;
 import java.util.Random;
+import vn.edu.iuh.fit.backEnd.repositories.CompanyRepository;
 
 @SpringBootApplication
 public class LabWeek05Application {
@@ -25,6 +27,8 @@ public class LabWeek05Application {
 	private CandidateRepository candidateRepository;
 	@Autowired
 	private AddressRepository addressRepository;
+	@Autowired
+	private CompanyRepository companyRepository;
 //		@Bean
 	CommandLineRunner initData(){
 		return args -> {
@@ -41,6 +45,20 @@ public class LabWeek05Application {
 						"email_"+i+"@gmail.com");
 				candidateRepository.save(can);
 				System.out.println("Added: " +can);
+			}
+		};
+	}
+//@Bean
+	CommandLineRunner initDataCompany(){
+		return args -> {
+			Random rnd =new Random();
+			for (int i = 1; i < 1000; i++) {
+				Address add = new Address(rnd.nextInt(1,1000)+"","Quang Trung","HCM",
+						rnd.nextInt(70000,80000)+"", CountryCode.VN );
+				addressRepository.save(add);
+				Company company = new Company("company1"+i , add,"web url1"+i, rnd.nextLong(1111111111L,9999999999L)+"", "email_"+i+"@gmail.com", "about"+i);
+				companyRepository.save(company);
+				System.out.println("Added: " +company);
 			}
 		};
 	}

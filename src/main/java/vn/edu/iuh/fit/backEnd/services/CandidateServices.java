@@ -19,24 +19,12 @@ public class CandidateServices {
         Pageable pageable = PageRequest.of(pageNo, pageSize, sort);
         return candidateRepository.findAll(pageable);//findFirst.../findTop...
     }
+//    public Candidate findCandidateByPhoneOrEmail(String email, String phone){
+//        return candidateRepository.findCandidateByPhoneOrEmail(email, phone);
+//    }
 
-    public Page<Candidate> findPaginated(Pageable pageable) {
-        int pageSize = pageable.getPageSize();
-        int currentPage = pageable.getPageNumber();
-        int startItem = currentPage * pageSize;
-        List<Candidate> list;
-        List<Candidate> candidates = candidateRepository.findAll();
-
-        if (candidates.size() < startItem) {
-            list = Collections.emptyList();
-        } else {
-            int toIndex = Math.min(startItem + pageSize, candidates.size());
-            list = candidates.subList(startItem, toIndex);
-        }
-
-        Page<Candidate> candidatePage = new PageImpl<>(list, PageRequest.of(currentPage, pageSize), candidates.size());
-
-        return candidatePage;
+    public Candidate findCandidateByEmail(String email){
+        return  candidateRepository.findCandidateByEmail(email);
     }
 
 }

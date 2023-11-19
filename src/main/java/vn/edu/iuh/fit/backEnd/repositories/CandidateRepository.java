@@ -6,4 +6,8 @@ import vn.edu.iuh.fit.backEnd.entities.Candidate;
 //@RepositoryRestResource(collectionResourceRel = "candidates", path = "candidates")
 //public interface CandidateRepository extends PagingAndSortingRepository<Candidate, Long> {
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
+
+//  Candidate findCandidateByPhoneOrEmail(String phone, String email);
+Candidate findCandidateByEmail(String email);
+
 }

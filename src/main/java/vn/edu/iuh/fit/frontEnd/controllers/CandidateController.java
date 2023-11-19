@@ -30,11 +30,11 @@ public class CandidateController {
     @Autowired
     private AddressRepository addressRepository;
 
-    @GetMapping("/list")
-    public String showCandidateList(Model model) {
-        model.addAttribute("candidates", candidateRepository.findAll());
-        return "candidates/list_no_paging";
-    }
+//    @GetMapping("/list")
+//    public String showCandidateList(Model model) {
+//        model.addAttribute("candidates", candidateRepository.findAll());
+//        return "candidates/list_no_paging";
+//    }
 
     @GetMapping("/candidates")
     public String showCandidateListPaging(Model model,
@@ -42,9 +42,6 @@ public class CandidateController {
                                           @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(10);
-        /*Page<Candidate> candidatePage= candidateServices.findPaginated(
-                PageRequest.of(currentPage - 1, pageSize)
-        );*/
         Page<Candidate> candidatePage = candidateServices.findAll(currentPage - 1,
                 pageSize, "id", "asc");
 

@@ -21,6 +21,7 @@
   </style>
 </head>
 <body>
+<div class="container p-4">
 <h1 th:align="center">ADD NEW CANDIDATE</h1>
 <div class="x">
   <form action="#" th:action="@{/candidates/add}" th:object="${candidate}" method="post">
@@ -77,6 +78,7 @@
       <input class="btn btn-primary" type="submit" value="Add Candidate">
     </div>
   </form>
+</div>
 </div>
 </body>
 </html>

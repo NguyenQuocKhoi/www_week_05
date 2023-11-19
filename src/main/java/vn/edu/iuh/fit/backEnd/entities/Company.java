@@ -13,34 +13,43 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company implements Serializable {
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "com_id")
     private long id;
 
-    @Column(name = "about", nullable = false, columnDefinition = "varchar(2000)")
-    private String about;
-
-    @Column(name = "comp_name", nullable = false, columnDefinition = "varchar(255)")
-    private String compName;
-
-    @Column(name = "email", nullable = false, columnDefinition = "varchar(255)")
-    private String email;
-
-    @Column(name = "phone", nullable = false, columnDefinition = "varchar(255)")
-    private String phone;
-
-    @Column(name = "web_url", nullable = false, columnDefinition = "varchar(255)")
-    private String webUrl;
+    @Column(name = "comp_name", nullable = false)
+    private String name;
 
     @OneToOne
-    @JoinColumn(name = "add_id")
+    @JoinColumn(name = "address", nullable = false)
     private Address address;
 
+    @Column(name = "web_url")
+    private String webURL;
+
+    @Column(name = "phone", nullable = false)
+    private String phone;
+
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Column(name = "about", length = 2000)
+    private String about;
 
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
-
+    public Company(String name, Address address, String webURL, String phone, String email,
+        String about) {
+        this.name = name;
+        this.address = address;
+        this.webURL = webURL;
+        this.phone = phone;
+        this.email = email;
+        this.about = about;
+    }
 }
+
+
