@@ -10,12 +10,17 @@ import org.springframework.context.annotation.Bean;
 import vn.edu.iuh.fit.backEnd.entities.Address;
 import vn.edu.iuh.fit.backEnd.entities.Candidate;
 import vn.edu.iuh.fit.backEnd.entities.Company;
+import vn.edu.iuh.fit.backEnd.entities.Job;
+import vn.edu.iuh.fit.backEnd.entities.Skill;
+import vn.edu.iuh.fit.backEnd.enums.SkillType;
 import vn.edu.iuh.fit.backEnd.repositories.AddressRepository;
 import vn.edu.iuh.fit.backEnd.repositories.CandidateRepository;
 
 import java.time.LocalDate;
 import java.util.Random;
 import vn.edu.iuh.fit.backEnd.repositories.CompanyRepository;
+import vn.edu.iuh.fit.backEnd.repositories.JobRepository;
+import vn.edu.iuh.fit.backEnd.repositories.SkillRepository;
 
 @SpringBootApplication
 public class LabWeek05Application {
@@ -29,6 +34,10 @@ public class LabWeek05Application {
 	private AddressRepository addressRepository;
 	@Autowired
 	private CompanyRepository companyRepository;
+	@Autowired
+			private JobRepository jobRepository;
+	@Autowired
+			private SkillRepository skillRepository;
 //		@Bean
 	CommandLineRunner initData(){
 		return args -> {
@@ -59,6 +68,28 @@ public class LabWeek05Application {
 				Company company = new Company("company1"+i , add,"web url1"+i, rnd.nextLong(1111111111L,9999999999L)+"", "email_"+i+"@gmail.com", "about"+i);
 				companyRepository.save(company);
 				System.out.println("Added: " +company);
+			}
+		};
+	}
+
+//	@Bean
+	CommandLineRunner initDataJob(){
+		return args -> {
+			Random rnd =new Random();
+			for (int i = 1; i < 10; i++) {
+				Job job = new Job("desc" + i, "name" +i, new Company(+i));
+				jobRepository.save(job);
+			}
+		};
+	}
+
+//	@Bean
+	CommandLineRunner initDataSkill(){
+		return args -> {
+//			Random rnd =new Random();
+			for (int i = 1; i < 100; i++) {
+				Skill skill = new Skill(SkillType.SOFT_SKILL,"skillName"+i, "skillDesc" +i);
+				skillRepository.save(skill);
 			}
 		};
 	}

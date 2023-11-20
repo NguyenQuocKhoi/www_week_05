@@ -33,5 +33,9 @@ public class Skill implements Serializable {
     @OneToMany(mappedBy = "skill")
     private List<JobSkill> jobSkills;
 
-
+    public Skill(SkillType type, String skillName, String skillDescription) {
+        this.type = type;
+        this.skillName = skillName;
+        this.skillDescription = skillDescription;
+    }
 }

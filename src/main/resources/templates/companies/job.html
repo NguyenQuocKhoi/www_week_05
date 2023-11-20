@@ -40,31 +40,26 @@
   </div>
 </head>
 <body>
-  <div class="container p-4">
-    <h1 class="text-center">LIST COMPANY</h1>
-    <table class="table table-striped table-hover">
-      <thead>
-      </thead>
-      <tbody>
-      <tr th:each="company, iStat: ${companyPage.content}">
-        <td th:text="${company.id}"></td>
-        <td th:text="${company.name}"></td>
-        <td th:text="${company.address}"></td>
-        <td th:text="${company.webURL}"></td>
-        <td th:text="${company.phone}"></td>
-        <td th:text="${company.email}"></td>
-        <td th:text="${company.about}"></td>
-<!--        <td><a th:href="@{/{id}(id=${candidate.id})}">Edit</a></td>-->
-        <td><a class="btn btn-primary" th:href="@{show-job/{id}(id=${company.id})}">View Job</a></td>
-      </tr>
-
-      </tbody>
-    </table>
-    <div class="inline" th:if="${companyPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
-      <a th:href="@{/companies(size=${companyPage.size}, page=${pageNumber})}"
-         th:text="${pageNumber}"
-         th:class="${pageNumber==companyPage.number + 1} ? active"></a>
-    </div>
-  </div>
+<div class="container p-4">
+  <h1 class="text-center">LIST JOB</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+    </thead>
+    <tbody>
+    <tr th:each="jobs: ${jobs}">
+      <td th:text="${jobs.id}"></td>
+      <td th:text="${jobs.jobDescription}"></td>
+      <td th:text="${jobs.jobName}"></td>
+      <td th:text="${jobs.company.getName()}"></td>
+      <td><a class="btn btn-primary" th:href="@{show-job-skill/{job}(job=${jobs.getId()})}">View Skill</a></td>
+    </tr>
+    </tbody>
+  </table>
+<!--  <div class="inline" th:if="${companyPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">-->
+<!--    <a th:href="@{/companies(size=${companyPage.size}, page=${pageNumber})}"-->
+<!--       th:text="${pageNumber}"-->
+<!--       th:class="${pageNumber==companyPage.number + 1} ? active"></a>-->
+<!--  </div>-->
+</div>
 </body>
 </html>

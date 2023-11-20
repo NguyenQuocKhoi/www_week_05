@@ -29,5 +29,10 @@ public class Job implements Serializable {
     @JoinColumn(name = "com_id")
     private Company company;
 
+    public Job( String jobDescription, String jobName, Company company) {
 
+        this.jobDescription = jobDescription;
+        this.jobName = jobName;
+        this.company = company;
+    }
 }

@@ -50,6 +50,10 @@ public class Company {
         this.email = email;
         this.about = about;
     }
+
+    public Company(long id) {
+        this.id = id;
+    }
 }
 
 
