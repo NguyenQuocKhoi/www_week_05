@@ -21,6 +21,6 @@ Màn hinh danh sách các công việc của một công ty
 
 ![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/6ce4bbac-8e98-4e60-ad53-26481c037c22)
 
-Màn hình cái kỹ năng cần thiết 
+Màn hình các kỹ năng cần thiết 
 
 ![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/57f8c783-5881-44f3-ac28-e4560228def3)
