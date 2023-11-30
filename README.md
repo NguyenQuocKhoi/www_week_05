@@ -11,16 +11,18 @@ Màn hình đăng nhập
 
 Màn hình danh sách các ứng viên gồm các chức năng thêm, xóa, sửa ứng viên
 
-![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/8d644801-c2d0-4690-a101-6ed6bacc60b5)
+![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/2ca39dbb-968e-46d8-9c67-ad355261c9fb)
 
-Màn hình danh sách các công ty, ấn vào "View Job" để xem các công việc của công ty đó
+Màn hình danh sách các công ty gồm các chức năng thêm xóa sửa, ấn vào "View Job" để xem các công việc của công ty đó
 
-![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/f7c509aa-a5d4-4684-a9b1-1906480e70d6)
+![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/1c1a64cd-696c-4fd0-b8fe-cee6a069c30a)
 
 Màn hinh danh sách các công việc của một công ty
 
 ![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/6ce4bbac-8e98-4e60-ad53-26481c037c22)
 
-Màn hình các kỹ năng cần thiết 
+Màn hình các kỹ năng cần thiết gồm có thêm xóa sửa các skill
 
-![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/57f8c783-5881-44f3-ac28-e4560228def3)
+![image](https://github.com/NguyenQuocKhoi/www_week_05/assets/98084575/21c6da35-ec50-4b1b-be71-3661199c605d)
+
+
