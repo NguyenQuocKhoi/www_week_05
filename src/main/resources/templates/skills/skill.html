@@ -51,6 +51,8 @@
       <td th:text="${skill.type}"></td>
       <td th:text="${skill.skillName}"></td>
       <td th:text="${skill.skillDescription}"></td>
+      <td><a class="btn btn-success" th:href="@{show-edit-formSkill/{id}(id=${skill.id})}">Edit</a></td>
+      <td><a class="btn btn-danger" th:href="@{skills/delete/{id}(id=${skill.id})}">Delete</a></td>
     </tr>
 
     </tbody>

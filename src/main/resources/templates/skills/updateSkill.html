@@ -15,8 +15,8 @@
           <h2 class="text-left" style="text-align: center">THÔNG TIN CÁ NHÂN</h2>
         </div>
         <div class="body" style="margin-top: 10px">
-          <form action="#" th:action="@{/skills/addSkill}" th:object="${skill}" method="post">
-
+          <form action="#" th:action="@{/skills/updateSkill}" th:object="${skill}" method="post">
+            <input type="hidden" th:field="${skill.id}" />
             <label for="type" class="control-label col-xs-3">Skill type</label>
             <div class="col-xs-3">
               <select name="type" id="type" class="form-select" th:selected="*{jobSkills}">
@@ -38,7 +38,7 @@
             <button class="btn btn-group-justified" name="submit1" id="Save"
                     type="submit"
                     style="color: white; margin-top: 10px; background-color: green; width: 100%;">
-              Add Skill
+              Update Skill
             </button>
 
             <button class="btn btn-group-justified" name="submit1" id="Clear"
@@ -50,7 +50,7 @@
           </form>
         </div>
       </div>
-</div>
+    </div>
   </div>
 </div>
 </body>

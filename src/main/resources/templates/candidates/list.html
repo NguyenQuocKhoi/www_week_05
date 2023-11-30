@@ -63,8 +63,8 @@
         <td th:text="${candidate.address}"></td>
         <td th:text="${candidate.phone}"></td>
         <td th:text="${candidate.email}"></td>
-        <td><a th:href="@{show-edit-form/{id}(id=${candidate.id})}">Edit</a></td>
-        <td><a th:href="@{candidates/delete/{id}(id=${candidate.id})}">Delete</a></td>
+        <td><a class="btn btn-primary" th:href="@{show-edit-form/{id}(id=${candidate.id})}">Edit</a></td>
+        <td><a class="btn btn-danger" th:href="@{candidates/delete/{id}(id=${candidate.id})}">Delete</a></td>
     </tr>
     </tbody>
 </table>

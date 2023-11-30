@@ -54,7 +54,8 @@
         <td th:text="${company.phone}"></td>
         <td th:text="${company.email}"></td>
         <td th:text="${company.about}"></td>
-<!--        <td><a th:href="@{/{id}(id=${candidate.id})}">Edit</a></td>-->
+        <td><a class="btn btn-success" th:href="@{show-edit-formCompany/{id}(id=${company.id})}">Edit</a></td>
+        <td><a class="btn btn-danger" th:href="@{companies/delete/{id}(id=${company.id})}">Delete</a></td>
         <td><a class="btn btn-primary" th:href="@{show-job/{id}(id=${company.id})}">View Job</a></td>
       </tr>
 
@@ -65,6 +66,9 @@
          th:text="${pageNumber}"
          th:class="${pageNumber==companyPage.number + 1} ? active"></a>
     </div>
+    <br>
+    <div class="inline"><a href="/companies/show-add-formCompany">Add a new Company</a></div>
   </div>
+
 </body>
 </html>
